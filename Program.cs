@@ -43,10 +43,10 @@ namespace HomeWork
                         FunctionSeven();
                         break;
                     case 8:
-                        FunctionNine();
+                        FunctionEight();
                         break;
                     case 9:
-                        FunctionTen();
+                        FunctionNine();
                         break;
                     case 10:
                         FunctionTen();
@@ -75,6 +75,7 @@ namespace HomeWork
         // Show hiện thị chức năng
         private static void ShowFunction()
         {
+            Console.WriteLine("----------------------");
             Console.WriteLine("Function 1:");
             Console.WriteLine("Function 2:");
             Console.WriteLine("Function 3:"); 
@@ -176,43 +177,105 @@ namespace HomeWork
         private static void FunctionSix()
         {
             int Number = EnterANumber();
-            int s = 0;
+            int Sum = 0;
             for (int i = 1; i <= Number; i++)
             {
                 int q = 1;
                 for (int j = 1; j <= i; j++)
                     { q = q * i; }
-                s = s + q;
+                Sum = Sum + q;
             }
-            Console.WriteLine(s);
+            Console.WriteLine("S =1^1 + 2^2 + ... {0} ",Sum);
            
 
         }
         //
         private static void FunctionSeven()
         {
+            int Number = EnterANumber();
+            int Sum = 0;
+            int i;
+            for ( i = 1; i <= Number; i++)
+            {
+                if (Number % 2 != 0)
+                {
+                    Sum += i;
+                }
+            }
+            Console.Write("Sum = {0}",Sum);
 
         }
 
         //
         private static void FunctionEight()
         {
-
+            int Number = EnterANumber();
+           if (Number >= 1)
+            {
+                for (int i = 2;i <= Number; i++)
+                {
+                    int Count = 0;
+                    for(int j = 2;j <= i/2; j++)
+                    {
+                        if(i % j == 0)
+                        { 
+                            Count++; 
+                        }    
+                    }  
+                    if(Count == 0)
+                    {
+                        Console.Write("{0},",i);
+                    }    
+                }
+           }
         }
         //
         private static void FunctionNine()
         {
-
+            int Number = EnterANumber();
+            for(int i = 0; i < Number; i++)
+            {
+                for (int j = 0; j < i + 1; j++)
+                {
+                    Console.Write("*");
+                }   
+                Console.WriteLine();
+            }  
         }
         //
         private static void FunctionTen()
         {
+            int Number = EnterANumber();
+            int NumberOne = 0; 
+            int NumberTwo = 1;
+            int Sum = 1;
 
+            if (Number <= 0)
+            {
+                Console.WriteLine("Không phải số dương");
+            }
+            else if(Number == 1 || Number == 2)
+            {
+                Console.WriteLine(Number);
+            }
+            else 
+            {
+                for(int i = 0;i < Number; i++) 
+                {
+                    NumberOne = NumberTwo;
+                    NumberTwo = Sum;
+                    Sum = NumberOne + NumberTwo;
+                    Console.Write(" {0}  ", NumberOne);
+                }
+                
+            }
+                
         }
 
         //Stop progam
         private static bool Escape()
         { 
+            Console.Write("");
             Console.WriteLine("--------------------");
             Console.WriteLine("Do you want continue");
             Console.WriteLine("Press ESC to exit");
